@@ -1,0 +1,307 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage[mathscr]{euscript}
+%\usepackage{esint}
+%\usepackage[utf8]{inputenc}
+%\usepackage[portuguese]{babel}
+
+
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bee{\begin{equation*}}
+\def\eee{\end{equation*}}
+\def\bea{\begin{eqnarray*}}
+\def\eea{\end{eqnarray*}}
+\def\beaa{\begin{eqnarray}}
+\def\eeaa{\end{eqnarray}}
+
+\def\f{\frac}
+
+\def\R{\mathbb{R}}
+\def\K{\mathbb{K}}
+\def\C{\mathbb{C}}
+\def\I{\mathbb{I}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\N{\mathbb{N}}
+
+\def\cd{\cdot}
+
+\def\v#1{{\boldsymbol{#1}}}
+\def\ve#1{\hat{\boldsymbol#1}}
+
+\def\l{\left}
+\def\r{\right}
+\def\la{\l\langle}
+\def\ra{\r\rangle}
+\def\div{\nabla\cdot}
+\def\curl{\nabla\times}
+\def\grad{\nabla}
+\def\lap{\nabla^2}
+
+\def\s{\quad}
+\def\ss{\qquad}
+\def\infi{\infty}
+\def\p{\partial}
+\def\u{\cup}%union of two sets
+\def\i{\cap}%intersection of two sets
+\def\ds{\oplus}
+ 
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+\newtheorem{method}{Method}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+
+%\newenvironment{defi}
+%  {\renewcommand{\qedsymbol}{$\whitesquare$}
+%   \pushQED{\qed}\begin{defi/}}
+%  {\popQED\end{defi/}}
+
+\renewcommand\qedsymbol{$Q.E.D$}
+
+\numberwithin{equation}{section}
+
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\asinh}{asinh}
+\DeclareMathOperator{\atanh}{atanh}
+\DeclareMathOperator{\acoth}{acoth}
+\DeclareMathOperator{\acosh}{acosh}
+\DeclareMathOperator{\acsch}{acsch}
+\DeclareMathOperator{\asech}{asech}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\Tr}{tr}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\aut}{Aut}
+%\DeclareMathOperator{\det}{det}
+%\DeclareMathOperator{\dim}{dim}
+
+\title{Green's Function Solution for Many Functions}
+\author{Lucas Froguel\\Deparment of Physics, UFPR}
+
+\begin{document}
+\maketitle
+
+
+
+        \section{Caso 1}
+        Nosso problema tem a função de Green
+        \be
+            G = \frac{\log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\
+        \ee
+        Consideraremos as funções:
+        \bea
+            f &=& 0 \\
+            g &=& 1
+        \eea
+        Então, precisamos integrar
+        \be
+            \psi = - \int\limits_{0}^{\infty}\int\limits_{-\infty}^{\infty} \frac{\mu_{0} e^{- \frac{g \zeta}{R T}} \log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\, d\xi\, d\zeta
+        \ee
+        Isso resulta em
+        \be
+            \psi = - \infty \operatorname{sign}{\left(\mu_{0} \right)} \operatorname{sign}{\left(\frac{1}{\pi} \right)} \int\limits_{0}^{\infty} \operatorname{sign}{\left(e^{- \frac{g \zeta}{R T}} \right)}\, d\zeta
+        \ee
+        com derivadas parciais:
+        \bea
+            \partial_x\psi &=& 0 \\
+            \partial_z\psi &=& 0
+        \eea
+        Por fim, a corrente a pressão são:
+        \bea
+            I &=& 0 \\
+            p &=& 0
+        \eea
+        
+
+        \section{Caso 2}
+        Nosso problema tem a função de Green
+        \be
+            G = \frac{\log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\
+        \ee
+        Consideraremos as funções:
+        \bea
+            f &=& 1 \\
+            g &=& 0
+        \eea
+        Então, precisamos integrar
+        \be
+            \psi = - \int\limits_{0}^{\infty}\int\limits_{-\infty}^{\infty} \frac{\mu_{0}^{2} \log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\, d\xi\, d\zeta
+        \ee
+        Isso resulta em
+        \be
+            \psi = - \infty \operatorname{sign}{\left(\mu_{0}^{2} \right)} \operatorname{sign}{\left(\frac{1}{\pi} \right)} \int\limits_{0}^{\infty} 1\, d\zeta
+        \ee
+        com derivadas parciais:
+        \bea
+            \partial_x\psi &=& 0 \\
+            \partial_z\psi &=& 0
+        \eea
+        Por fim, a corrente a pressão são:
+        \bea
+            I &=& 0 \\
+            p &=& 0
+        \eea
+        
+
+        \section{Caso 3}
+        Nosso problema tem a função de Green
+        \be
+            G = \frac{\log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\
+        \ee
+        Consideraremos as funções:
+        \bea
+            f &=& 1 \\
+            g &=& 1
+        \eea
+        Então, precisamos integrar
+        \be
+            \psi = - \int\limits_{0}^{\infty}\int\limits_{-\infty}^{\infty} \frac{\left(\mu_{0}^{2} + \mu_{0} e^{- \frac{g \zeta}{R T}}\right) \log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\, d\xi\, d\zeta
+        \ee
+        Isso resulta em
+        \be
+            \psi = - \infty \operatorname{sign}{\left(\mu_{0} \right)} \operatorname{sign}{\left(\frac{1}{\pi} \right)} \int\limits_{0}^{\infty} \operatorname{sign}{\left(\mu_{0} e^{\frac{g \zeta}{R T}} + 1 \right)} \operatorname{sign}{\left(e^{- \frac{g \zeta}{R T}} \right)}\, d\zeta
+        \ee
+        com derivadas parciais:
+        \bea
+            \partial_x\psi &=& 0 \\
+            \partial_z\psi &=& 0
+        \eea
+        Por fim, a corrente a pressão são:
+        \bea
+            I &=& 0 \\
+            p &=& 0
+        \eea
+        
+
+        \section{Caso 4}
+        Nosso problema tem a função de Green
+        \be
+            G = \frac{\log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\
+        \ee
+        Consideraremos as funções:
+        \bea
+            f &=& \xi \\
+            g &=& \zeta
+        \eea
+        Então, precisamos integrar
+        \be
+            \psi = - \int\limits_{0}^{\infty}\int\limits_{-\infty}^{\infty} \frac{\left(\mu_{0}^{2} \xi + \mu_{0} \zeta e^{- \frac{g \zeta}{R T}}\right) \log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\, d\xi\, d\zeta
+        \ee
+        Isso resulta em
+        \be
+            \psi = \text{NaN}
+        \ee
+        com derivadas parciais:
+        \bea
+            \partial_x\psi &=& 0 \\
+            \partial_z\psi &=& 0
+        \eea
+        Por fim, a corrente a pressão são:
+        \bea
+            I &=& 0 \\
+            p &=& 0
+        \eea
+        
+
+        \section{Caso 5}
+        Nosso problema tem a função de Green
+        \be
+            G = \frac{\log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\
+        \ee
+        Consideraremos as funções:
+        \bea
+            f &=& \xi^{4} \\
+            g &=& 1
+        \eea
+        Então, precisamos integrar
+        \be
+            \psi = - \int\limits_{0}^{\infty}\int\limits_{-\infty}^{\infty} \frac{\left(\mu_{0}^{2} \xi^{4} + \mu_{0} e^{- \frac{g \zeta}{R T}}\right) \log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\, d\xi\, d\zeta
+        \ee
+        Isso resulta em
+        \be
+            \psi = - \infty \operatorname{sign}{\left(\mu_{0}^{2} \right)} \operatorname{sign}{\left(\frac{1}{\pi} \right)} \int\limits_{0}^{\infty} 1\, d\zeta
+        \ee
+        com derivadas parciais:
+        \bea
+            \partial_x\psi &=& 0 \\
+            \partial_z\psi &=& 0
+        \eea
+        Por fim, a corrente a pressão são:
+        \bea
+            I &=& 0 \\
+            p &=& 0
+        \eea
+        
+
+        \section{Caso 6}
+        Nosso problema tem a função de Green
+        \be
+            G = \frac{\log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\
+        \ee
+        Consideraremos as funções:
+        \bea
+            f &=& \xi^{3} + \xi^{2} + \xi + 1 \\
+            g &=& 0
+        \eea
+        Então, precisamos integrar
+        \be
+            \psi = - \int\limits_{0}^{\infty}\int\limits_{-\infty}^{\infty} \frac{\mu_{0}^{2} \left(\xi^{3} + \xi^{2} + \xi + 1\right) \log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\, d\xi\, d\zeta
+        \ee
+        Isso resulta em
+        \be
+            \psi = \text{NaN}
+        \ee
+        com derivadas parciais:
+        \bea
+            \partial_x\psi &=& 0 \\
+            \partial_z\psi &=& 0
+        \eea
+        Por fim, a corrente a pressão são:
+        \bea
+            I &=& 0 \\
+            p &=& 0
+        \eea
+        
+
+        \section{Caso 7}
+        Nosso problema tem a função de Green
+        \be
+            G = \frac{\log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\
+        \ee
+        Consideraremos as funções:
+        \bea
+            f &=& \sin{\left(\xi \right)} \\
+            g &=& \cos{\left(\zeta \right)}
+        \eea
+        Então, precisamos integrar
+        \be
+            \psi = - \int\limits_{0}^{\infty}\int\limits_{-\infty}^{\infty} \frac{\left(\mu_{0}^{2} \sin{\left(\xi \right)} + \mu_{0} e^{- \frac{g \zeta}{R T}} \cos{\left(\zeta \right)}\right) \log{\left(\sqrt{\left(x - \xi\right)^{2} + \left(z - \zeta\right)^{2}} \right)}}{2 \pi}\, d\xi\, d\zeta
+        \ee
+        Isso resulta em
+        \be
+            \psi = - \frac{\mu_{0} \left(\int\limits_{0}^{\infty} e^{- \frac{g \zeta}{R T}} \int\limits_{-\infty}^{\infty} \log{\left(x^{2} - 2 x \xi + \xi^{2} + z^{2} - 2 z \zeta + \zeta^{2} \right)} \cos{\left(\zeta \right)}\, d\xi\, d\zeta + \int\limits_{0}^{\infty} e^{- \frac{g \zeta}{R T}} \int\limits_{-\infty}^{\infty} \mu_{0} e^{\frac{g \zeta}{R T}} \log{\left(x^{2} - 2 x \xi + \xi^{2} + z^{2} - 2 z \zeta + \zeta^{2} \right)} \sin{\left(\xi \right)}\, d\xi\, d\zeta\right)}{4 \pi}
+        \ee
+        com derivadas parciais:
+        \bea
+            \partial_x\psi &=& - \frac{\mu_{0} \left(\int\limits_{0}^{\infty} e^{- \frac{g \zeta}{R T}} \int\limits_{-\infty}^{\infty} \frac{\left(2 x - 2 \xi\right) \cos{\left(\zeta \right)}}{x^{2} - 2 x \xi + \xi^{2} + z^{2} - 2 z \zeta + \zeta^{2}}\, d\xi\, d\zeta + \int\limits_{0}^{\infty} e^{- \frac{g \zeta}{R T}} \int\limits_{-\infty}^{\infty} \frac{\mu_{0} \cdot \left(2 x - 2 \xi\right) e^{\frac{g \zeta}{R T}} \sin{\left(\xi \right)}}{x^{2} - 2 x \xi + \xi^{2} + z^{2} - 2 z \zeta + \zeta^{2}}\, d\xi\, d\zeta\right)}{4 \pi} \\
+            \partial_z\psi &=& - \frac{\mu_{0} \left(\int\limits_{0}^{\infty} e^{- \frac{g \zeta}{R T}} \int\limits_{-\infty}^{\infty} \frac{\left(2 z - 2 \zeta\right) \cos{\left(\zeta \right)}}{x^{2} - 2 x \xi + \xi^{2} + z^{2} - 2 z \zeta + \zeta^{2}}\, d\xi\, d\zeta + \int\limits_{0}^{\infty} e^{- \frac{g \zeta}{R T}} \int\limits_{-\infty}^{\infty} \frac{\mu_{0} \cdot \left(2 z - 2 \zeta\right) e^{\frac{g \zeta}{R T}} \sin{\left(\xi \right)}}{x^{2} - 2 x \xi + \xi^{2} + z^{2} - 2 z \zeta + \zeta^{2}}\, d\xi\, d\zeta\right)}{4 \pi}
+        \eea
+        Por fim, a corrente a pressão são:
+        \bea
+            I &=& \text{NaN} \\
+            p &=& \text{NaN}
+        \eea
+        \end{document}

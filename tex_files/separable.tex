@@ -1,0 +1,337 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage[mathscr]{euscript}
+%\usepackage{esint}
+%\usepackage[utf8]{inputenc}
+%\usepackage[portuguese]{babel}
+
+
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\bee{\begin{equation*}}
+\def\eee{\end{equation*}}
+\def\bea{\begin{eqnarray*}}
+\def\eea{\end{eqnarray*}}
+\def\beaa{\begin{eqnarray}}
+\def\eeaa{\end{eqnarray}}
+
+\def\f{\frac}
+
+\def\R{\mathbb{R}}
+\def\K{\mathbb{K}}
+\def\C{\mathbb{C}}
+\def\I{\mathbb{I}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\N{\mathbb{N}}
+
+\def\cd{\cdot}
+
+\def\v#1{{\boldsymbol{#1}}}
+\def\ve#1{\hat{\boldsymbol#1}}
+
+\def\l{\left}
+\def\r{\right}
+\def\la{\l\langle}
+\def\ra{\r\rangle}
+\def\div{\nabla\cdot}
+\def\curl{\nabla\times}
+\def\grad{\nabla}
+\def\lap{\nabla^2}
+
+\def\s{\quad}
+\def\ss{\qquad}
+\def\infi{\infty}
+\def\p{\partial}
+\def\u{\cup}%union of two sets
+\def\i{\cap}%intersection of two sets
+\def\ds{\oplus}
+ 
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem*{remark}{Remark}
+\newtheorem{method}{Method}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+
+%\newenvironment{defi}
+%  {\renewcommand{\qedsymbol}{$\whitesquare$}
+%   \pushQED{\qed}\begin{defi/}}
+%  {\popQED\end{defi/}}
+
+\renewcommand\qedsymbol{$Q.E.D$}
+
+\numberwithin{equation}{section}
+
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\asinh}{asinh}
+\DeclareMathOperator{\atanh}{atanh}
+\DeclareMathOperator{\acoth}{acoth}
+\DeclareMathOperator{\acosh}{acosh}
+\DeclareMathOperator{\acsch}{acsch}
+\DeclareMathOperator{\asech}{asech}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\Tr}{tr}
+\DeclareMathOperator{\graph}{graph}
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\aut}{Aut}
+%\DeclareMathOperator{\det}{det}
+%\DeclareMathOperator{\dim}{dim}
+
+\title{Green's Function Solution for Many Functions}
+\author{Lucas Froguel\\Deparment of Physics, UFPR}
+
+\begin{document}
+\maketitle
+
+
+
+        \section{Caso 1}
+        Esse caso considerará as funções
+        \bea
+            f &=& 0 \\
+            g &=& 0
+        \eea
+        Isso significa que precisamos resolver as EDOs:
+        \be
+            C X{\left(x \right)} + \frac{d^{2}}{d x^{2}} X{\left(x \right)} = 0
+        \ee
+        E
+        \be
+            - C Z{\left(z \right)} + \frac{d^{2}}{d z^{2}} Z{\left(z \right)} = 0
+        \ee
+        Isso resulta na solução parcial:
+        \bea
+            X &=& C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} \\
+            Z &=& C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}
+        \eea
+        que implica no perfil:
+        \be
+            \Psi = \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}\right) \left(C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}}\right)
+        \ee
+        Isso leva aos campos magnéticos:
+        \bea
+            B_z &=& \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}\right) \left(- C_{1} \sqrt{- C} e^{- x \sqrt{- C}} + C_{2} \sqrt{- C} e^{x \sqrt{- C}}\right)\\
+            B_x &=& - \left(C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}}\right) \left(- \sqrt{C} C_{1} e^{- \sqrt{C} z} + \sqrt{C} C_{2} e^{\sqrt{C} z}\right)
+        \eea
+        
+
+        \section{Caso 2}
+        Esse caso considerará as funções
+        \bea
+            f &=& 1 \\
+            g &=& 1
+        \eea
+        Isso significa que precisamos resolver as EDOs:
+        \be
+            C X{\left(x \right)} + \mu_{0}^{2} + \frac{d^{2}}{d x^{2}} X{\left(x \right)} = 0
+        \ee
+        E
+        \be
+            - C Z{\left(z \right)} + \mu_{0} e^{- \frac{g z}{R T}} + \frac{d^{2}}{d z^{2}} Z{\left(z \right)} = 0
+        \ee
+        Isso resulta na solução parcial:
+        \bea
+            X &=& C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2}}{C} \\
+            Z &=& C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z} - \frac{R^{2} T^{2} \mu_{0} e^{- \frac{g z}{R T}}}{- C R^{2} T^{2} + g^{2}}
+        \eea
+        que implica no perfil:
+        \be
+            \Psi = \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z} - \frac{R^{2} T^{2} \mu_{0} e^{- \frac{g z}{R T}}}{- C R^{2} T^{2} + g^{2}}\right) \left(C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2}}{C}\right)
+        \ee
+        Isso leva aos campos magnéticos:
+        \bea
+            B_z &=& \left(- C_{1} \sqrt{- C} e^{- x \sqrt{- C}} + C_{2} \sqrt{- C} e^{x \sqrt{- C}}\right) \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z} - \frac{R^{2} T^{2} \mu_{0} e^{- \frac{g z}{R T}}}{- C R^{2} T^{2} + g^{2}}\right)\\
+            B_x &=& - \left(C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2}}{C}\right) \left(- \sqrt{C} C_{1} e^{- \sqrt{C} z} + \sqrt{C} C_{2} e^{\sqrt{C} z} + \frac{R T \mu_{0} g e^{- \frac{g z}{R T}}}{- C R^{2} T^{2} + g^{2}}\right)
+        \eea
+        
+
+        \section{Caso 3}
+        Esse caso considerará as funções
+        \bea
+            f &=& x \\
+            g &=& 0
+        \eea
+        Isso significa que precisamos resolver as EDOs:
+        \be
+            C X{\left(x \right)} + \mu_{0}^{2} x + \frac{d^{2}}{d x^{2}} X{\left(x \right)} = 0
+        \ee
+        E
+        \be
+            - C Z{\left(z \right)} + \frac{d^{2}}{d z^{2}} Z{\left(z \right)} = 0
+        \ee
+        Isso resulta na solução parcial:
+        \bea
+            X &=& C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2} x}{C} \\
+            Z &=& C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}
+        \eea
+        que implica no perfil:
+        \be
+            \Psi = \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}\right) \left(C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2} x}{C}\right)
+        \ee
+        Isso leva aos campos magnéticos:
+        \bea
+            B_z &=& \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}\right) \left(- C_{1} \sqrt{- C} e^{- x \sqrt{- C}} + C_{2} \sqrt{- C} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2}}{C}\right)\\
+            B_x &=& - \left(- \sqrt{C} C_{1} e^{- \sqrt{C} z} + \sqrt{C} C_{2} e^{\sqrt{C} z}\right) \left(C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2} x}{C}\right)
+        \eea
+        
+
+        \section{Caso 4}
+        Esse caso considerará as funções
+        \bea
+            f &=& X{\left(x \right)} \\
+            g &=& 0
+        \eea
+        Isso significa que precisamos resolver as EDOs:
+        \be
+            C X{\left(x \right)} + \mu_{0}^{2} X{\left(x \right)} + \frac{d^{2}}{d x^{2}} X{\left(x \right)} = 0
+        \ee
+        E
+        \be
+            - C Z{\left(z \right)} + \frac{d^{2}}{d z^{2}} Z{\left(z \right)} = 0
+        \ee
+        Isso resulta na solução parcial:
+        \bea
+            X &=& C_{1} e^{- x \sqrt{- C - \mu_{0}^{2}}} + C_{2} e^{x \sqrt{- C - \mu_{0}^{2}}} \\
+            Z &=& C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}
+        \eea
+        que implica no perfil:
+        \be
+            \Psi = \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}\right) \left(C_{1} e^{- x \sqrt{- C - \mu_{0}^{2}}} + C_{2} e^{x \sqrt{- C - \mu_{0}^{2}}}\right)
+        \ee
+        Isso leva aos campos magnéticos:
+        \bea
+            B_z &=& \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}\right) \left(- C_{1} \sqrt{- C - \mu_{0}^{2}} e^{- x \sqrt{- C - \mu_{0}^{2}}} + C_{2} \sqrt{- C - \mu_{0}^{2}} e^{x \sqrt{- C - \mu_{0}^{2}}}\right)\\
+            B_x &=& - \left(C_{1} e^{- x \sqrt{- C - \mu_{0}^{2}}} + C_{2} e^{x \sqrt{- C - \mu_{0}^{2}}}\right) \left(- \sqrt{C} C_{1} e^{- \sqrt{C} z} + \sqrt{C} C_{2} e^{\sqrt{C} z}\right)
+        \eea
+        
+
+        \section{Caso 5}
+        Esse caso considerará as funções
+        \bea
+            f &=& x^{3} + x^{2} + x + 1 \\
+            g &=& 0
+        \eea
+        Isso significa que precisamos resolver as EDOs:
+        \be
+            C X{\left(x \right)} + \mu_{0}^{2} \left(x^{3} + x^{2} + x + 1\right) + \frac{d^{2}}{d x^{2}} X{\left(x \right)} = 0
+        \ee
+        E
+        \be
+            - C Z{\left(z \right)} + \frac{d^{2}}{d z^{2}} Z{\left(z \right)} = 0
+        \ee
+        Isso resulta na solução parcial:
+        \bea
+            X &=& C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2} x^{3}}{C} - \frac{\mu_{0}^{2} x^{2}}{C} - \frac{\mu_{0}^{2} x}{C} - \frac{\mu_{0}^{2}}{C} + \frac{6 \mu_{0}^{2} x}{C^{2}} + \frac{2 \mu_{0}^{2}}{C^{2}} \\
+            Z &=& C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}
+        \eea
+        que implica no perfil:
+        \be
+            \Psi = \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}\right) \left(C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2} x^{3}}{C} - \frac{\mu_{0}^{2} x^{2}}{C} - \frac{\mu_{0}^{2} x}{C} - \frac{\mu_{0}^{2}}{C} + \frac{6 \mu_{0}^{2} x}{C^{2}} + \frac{2 \mu_{0}^{2}}{C^{2}}\right)
+        \ee
+        Isso leva aos campos magnéticos:
+        \bea
+            B_z &=& \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}\right) \left(- C_{1} \sqrt{- C} e^{- x \sqrt{- C}} + C_{2} \sqrt{- C} e^{x \sqrt{- C}} - \frac{3 \mu_{0}^{2} x^{2}}{C} - \frac{2 \mu_{0}^{2} x}{C} - \frac{\mu_{0}^{2}}{C} + \frac{6 \mu_{0}^{2}}{C^{2}}\right)\\
+            B_x &=& - \left(- \sqrt{C} C_{1} e^{- \sqrt{C} z} + \sqrt{C} C_{2} e^{\sqrt{C} z}\right) \left(C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2} x^{3}}{C} - \frac{\mu_{0}^{2} x^{2}}{C} - \frac{\mu_{0}^{2} x}{C} - \frac{\mu_{0}^{2}}{C} + \frac{6 \mu_{0}^{2} x}{C^{2}} + \frac{2 \mu_{0}^{2}}{C^{2}}\right)
+        \eea
+        
+
+        \section{Caso 6}
+        Esse caso considerará as funções
+        \bea
+            f &=& x^{4} \\
+            g &=& 0
+        \eea
+        Isso significa que precisamos resolver as EDOs:
+        \be
+            C X{\left(x \right)} + \mu_{0}^{2} x^{4} + \frac{d^{2}}{d x^{2}} X{\left(x \right)} = 0
+        \ee
+        E
+        \be
+            - C Z{\left(z \right)} + \frac{d^{2}}{d z^{2}} Z{\left(z \right)} = 0
+        \ee
+        Isso resulta na solução parcial:
+        \bea
+            X &=& C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2} x^{4}}{C} + \frac{12 \mu_{0}^{2} x^{2}}{C^{2}} - \frac{24 \mu_{0}^{2}}{C^{3}} \\
+            Z &=& C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}
+        \eea
+        que implica no perfil:
+        \be
+            \Psi = \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}\right) \left(C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2} x^{4}}{C} + \frac{12 \mu_{0}^{2} x^{2}}{C^{2}} - \frac{24 \mu_{0}^{2}}{C^{3}}\right)
+        \ee
+        Isso leva aos campos magnéticos:
+        \bea
+            B_z &=& \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}\right) \left(- C_{1} \sqrt{- C} e^{- x \sqrt{- C}} + C_{2} \sqrt{- C} e^{x \sqrt{- C}} - \frac{4 \mu_{0}^{2} x^{3}}{C} + \frac{24 \mu_{0}^{2} x}{C^{2}}\right)\\
+            B_x &=& - \left(- \sqrt{C} C_{1} e^{- \sqrt{C} z} + \sqrt{C} C_{2} e^{\sqrt{C} z}\right) \left(C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2} x^{4}}{C} + \frac{12 \mu_{0}^{2} x^{2}}{C^{2}} - \frac{24 \mu_{0}^{2}}{C^{3}}\right)
+        \eea
+        
+
+        \section{Caso 7}
+        Esse caso considerará as funções
+        \bea
+            f &=& X{\left(x \right)} \\
+            g &=& Z{\left(z \right)}
+        \eea
+        Isso significa que precisamos resolver as EDOs:
+        \be
+            C X{\left(x \right)} + \mu_{0}^{2} X{\left(x \right)} + \frac{d^{2}}{d x^{2}} X{\left(x \right)} = 0
+        \ee
+        E
+        \be
+            - C Z{\left(z \right)} + \mu_{0} Z{\left(z \right)} e^{- \frac{g z}{R T}} + \frac{d^{2}}{d z^{2}} Z{\left(z \right)} = 0
+        \ee
+        Isso resulta na solução parcial:
+        \bea
+            X &=& C_{1} e^{- x \sqrt{- C - \mu_{0}^{2}}} + C_{2} e^{x \sqrt{- C - \mu_{0}^{2}}} \\
+            Z &=& C_{2} \left(\frac{C z^{2}}{2} - \frac{\mu_{0} z^{2} e^{- \frac{g z}{R T}}}{2} + \frac{z^{4} \left(C e^{\frac{g z}{R T}} - \mu_{0}\right)^{2} e^{- \frac{2 g z}{R T}}}{24} + 1\right) + C_{1} z \left(\frac{C z^{2}}{6} - \frac{\mu_{0} z^{2} e^{- \frac{g z}{R T}}}{6} + 1\right) + O\left(z^{6}\right)
+        \eea
+        que implica no perfil:
+        \be
+            \Psi = \left(C_{1} e^{- x \sqrt{- C - \mu_{0}^{2}}} + C_{2} e^{x \sqrt{- C - \mu_{0}^{2}}}\right) \left(C_{2} \left(\frac{C z^{2}}{2} - \frac{\mu_{0} z^{2} e^{- \frac{g z}{R T}}}{2} + \frac{z^{4} \left(C e^{\frac{g z}{R T}} - \mu_{0}\right)^{2} e^{- \frac{2 g z}{R T}}}{24} + 1\right) + C_{1} z \left(\frac{C z^{2}}{6} - \frac{\mu_{0} z^{2} e^{- \frac{g z}{R T}}}{6} + 1\right) + O\left(z^{6}\right)\right)
+        \ee
+        Isso leva aos campos magnéticos:
+        \bea
+            B_z &=& \left(- C_{1} \sqrt{- C - \mu_{0}^{2}} e^{- x \sqrt{- C - \mu_{0}^{2}}} + C_{2} \sqrt{- C - \mu_{0}^{2}} e^{x \sqrt{- C - \mu_{0}^{2}}}\right) \left(C_{2} \left(\frac{C z^{2}}{2} - \frac{\mu_{0} z^{2} e^{- \frac{g z}{R T}}}{2} + \frac{z^{4} \left(C e^{\frac{g z}{R T}} - \mu_{0}\right)^{2} e^{- \frac{2 g z}{R T}}}{24} + 1\right) + C_{1} z \left(\frac{C z^{2}}{6} - \frac{\mu_{0} z^{2} e^{- \frac{g z}{R T}}}{6} + 1\right) + O\left(z^{6}\right)\right)\\
+            B_x &=& - \left(C_{1} e^{- x \sqrt{- C - \mu_{0}^{2}}} + C_{2} e^{x \sqrt{- C - \mu_{0}^{2}}}\right) \left(C_{2} \left(C z + \frac{C g z^{4} \left(C e^{\frac{g z}{R T}} - \mu_{0}\right) e^{- \frac{g z}{R T}}}{12 R T} - \mu_{0} z e^{- \frac{g z}{R T}} + \frac{z^{3} \left(C e^{\frac{g z}{R T}} - \mu_{0}\right)^{2} e^{- \frac{2 g z}{R T}}}{6} + \frac{\mu_{0} g z^{2} e^{- \frac{g z}{R T}}}{2 R T} - \frac{g z^{4} \left(C e^{\frac{g z}{R T}} - \mu_{0}\right)^{2} e^{- \frac{2 g z}{R T}}}{12 R T}\right) + C_{1} \left(\frac{C z^{2}}{6} - \frac{\mu_{0} z^{2} e^{- \frac{g z}{R T}}}{6} + 1\right) + C_{1} z \left(\frac{C z}{3} - \frac{\mu_{0} z e^{- \frac{g z}{R T}}}{3} + \frac{\mu_{0} g z^{2} e^{- \frac{g z}{R T}}}{6 R T}\right) + O\left(z^{5}\right)\right)
+        \eea
+        
+
+        \section{Caso 8}
+        Esse caso considerará as funções
+        \bea
+            f &=& \sin{\left(x \right)} + \cos{\left(x \right)} \\
+            g &=& 0
+        \eea
+        Isso significa que precisamos resolver as EDOs:
+        \be
+            C X{\left(x \right)} + \mu_{0}^{2} \left(\sin{\left(x \right)} + \cos{\left(x \right)}\right) + \frac{d^{2}}{d x^{2}} X{\left(x \right)} = 0
+        \ee
+        E
+        \be
+            - C Z{\left(z \right)} + \frac{d^{2}}{d z^{2}} Z{\left(z \right)} = 0
+        \ee
+        Isso resulta na solução parcial:
+        \bea
+            X &=& C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2} \sin{\left(x \right)}}{C - 1} - \frac{\mu_{0}^{2} \cos{\left(x \right)}}{C - 1} \\
+            Z &=& C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}
+        \eea
+        que implica no perfil:
+        \be
+            \Psi = \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}\right) \left(C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2} \sin{\left(x \right)}}{C - 1} - \frac{\mu_{0}^{2} \cos{\left(x \right)}}{C - 1}\right)
+        \ee
+        Isso leva aos campos magnéticos:
+        \bea
+            B_z &=& \left(C_{1} e^{- \sqrt{C} z} + C_{2} e^{\sqrt{C} z}\right) \left(- C_{1} \sqrt{- C} e^{- x \sqrt{- C}} + C_{2} \sqrt{- C} e^{x \sqrt{- C}} + \frac{\mu_{0}^{2} \sin{\left(x \right)}}{C - 1} - \frac{\mu_{0}^{2} \cos{\left(x \right)}}{C - 1}\right)\\
+            B_x &=& - \left(- \sqrt{C} C_{1} e^{- \sqrt{C} z} + \sqrt{C} C_{2} e^{\sqrt{C} z}\right) \left(C_{1} e^{- x \sqrt{- C}} + C_{2} e^{x \sqrt{- C}} - \frac{\mu_{0}^{2} \sin{\left(x \right)}}{C - 1} - \frac{\mu_{0}^{2} \cos{\left(x \right)}}{C - 1}\right)
+        \eea
+        \end{document}
